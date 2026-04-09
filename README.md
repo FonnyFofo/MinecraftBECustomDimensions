@@ -19,7 +19,7 @@ Adds three fully scripted custom dimensions accessible from anywhere via a trave
 
 ## Requirements
 
-- **Minecraft Preview** — versione **26.x** o superiore (tested on 26.20.x)
+- **Minecraft Preview** — versione **26.x** o superior (tested on 26.20.x)
 - **Beta APIs** experimental toggle enabled (see below)
 - **Custom Dimensions** experimental toggle enabled (see below)
 
