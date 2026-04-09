@@ -2,8 +2,7 @@
 
 > Made by **FonnyFofo** for **WanMine**
 
-A Bedrock scripting experiment using the new **Custom Dimension API** (available since Preview 26.20.x).  
-Adds three fully scripted custom dimensions accessible from anywhere via a travel UI.
+Testing custom dimensions, scripted cinematics, procedural generation and world manipulation in Minecraft Bedrock Preview — building a multi-dimension travel system from scratch.
 
 ---
 
@@ -13,33 +12,27 @@ Adds three fully scripted custom dimensions accessible from anywhere via a trave
 |---|---|
 | **Umbra Depths** | Warden-inspired underground realm. Sculk floor, deepslate ceiling, pillar forest, 4 ruin sites, and a central altar. Pre-built on world load. |
 | **Aether Expanse** | Infinite floating islands generated chunk by chunk as you explore. Three island biomes: Meadow, Crystal, Bone. |
-| **Terra Genesis** | Up to 8 player-configured worlds, each in its own dedicated dimension. Choose biome style, ground block, time of day, mountains, trees, and a seed. |
+| **Terra Genesis** | Up to 8 player-configured worlds, each in its own dedicated dimension. Choose biome, ground block, mountain height, tree density, water level, caves, ores, and more. |
 
 ---
 
 ## Requirements
 
-- **Minecraft Preview** — versione **26.x** o superior (tested on 26.20.x)
-- **Beta APIs** experimental toggle enabled (see below)
-- **Custom Dimensions** experimental toggle enabled (see below)
-
-### How to enable experimental features
-
-1. Create or open a world in **Minecraft Preview**
-2. Go to **World Settings → Experiments**
-3. Enable:
-   - ✅ **Beta APIs**
-   - ✅ **Custom Dimensions** *(may appear as "Upcoming Creator Features" depending on your build)*
-4. Confirm the warning and load the world
+- **Minecraft Preview** — version 26.x or higher (tested on 26.20.x)
+- The following **experimental toggles** must be enabled in world settings:
+  - ✅ Beta APIs
+  - ✅ Upcoming Creator Features
+  - ✅ Custom Dimensions *(if listed separately)*
 
 ---
 
 ## Installation
 
-1. Download the `.mcaddon` file (or clone this repo and zip the `BP/` folder as `.mcpack`)
-2. Open it — Minecraft will import it automatically
-3. Apply the behavior pack to your Preview world
-4. Make sure the experimental toggles above are active
+1. Open your world in **Minecraft Preview**
+2. Go to **World Settings → Add-Ons → Behavior Packs**
+3. Create a behavior pack folder and place `main.js` inside a `scripts/` subfolder, with `manifest.json` at the root
+4. Enable the pack and make sure the experimental toggles above are active
+5. Load the world — use `/travel:portal` to open the travel menu
 
 ---
 
@@ -56,10 +49,12 @@ Adds three fully scripted custom dimensions accessible from anywhere via a trave
 
 ## Notes
 
-- Umbra Depths is built once on world load and cached — subsequent loads skip generation
-- Aether islands generate live as players move, using a deterministic hash so shape is consistent per-seed
-- Terra worlds persist across sessions via dynamic properties; each world occupies its own dimension slot (`terra:world_0` through `terra:world_7`)
-- This addon uses **JavaScript** (not TypeScript) for direct compatibility without a build step
+- **This is experimental.** The Custom Dimension API is a beta feature — things may break between Preview versions and generation is not optimized for large-scale use.
+- This is a personal testing project, not a polished release. Expect rough edges.
+- Umbra Depths is built once on world load and cached — rebuilding requires `/travel:reset_umbra`
+- Aether islands generate live as you explore using deterministic noise, so shape is consistent per-seed
+- Terra worlds persist across sessions via dynamic properties; each occupies its own dimension slot (`terra:world_0` through `terra:world_7`)
+- Red/wrong fog in custom dimensions is a known Bedrock limitation with no full fix available yet
 
 ---
 
