@@ -1,0 +1,23 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Dimensions",
+    "description": "Umbra Depths (warden ruins) + Aether Expanse (infinite floating islands)",
+    "uuid": "a9b8c7d6-e5f4-3210-abcd-ef9876543210",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 80]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "b8c7d6e5-f4a3-2109-bcde-f09876543211",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    { "module_name": "@minecraft/server",    "version": "2.8.0-beta" },
+    { "module_name": "@minecraft/server-ui", "version": "2.0.0"     }
+  ]
+}
