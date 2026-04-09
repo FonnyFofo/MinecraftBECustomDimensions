@@ -1119,6 +1119,10 @@ function* generateTerraChunk(dim, cfg, cx, cz, areaId, onDone) {
         }
 
         dim.getBlock({ x: wx, y, z: wz })?.setPermutation(perm);
+        if (cfg.biome === 4 && y > TERRA_BEDROCK_Y + 5 && y < surfY - 2
+          && hash(wx, y * 13 + wz, S + 4500) % 150 === 0) {
+          dim.getBlock({ x: wx, y, z: wz })?.setPermutation(liquidP);
+        }
       }
 
       // ── Liquid fill below effective sea level ──────────────────────────────
@@ -1146,10 +1150,6 @@ function* generateTerraChunk(dim, cfg, cx, cz, areaId, onDone) {
       if (cfg.biome === 2 && surfY > effectiveSeaY + 2 && surfY >= TERRA_SEA_Y + 15) {
         dim.getBlock({ x: wx, y: surfY + 1, z: wz })
           ?.setPermutation(BlockPermutation.resolve("minecraft:snow_layer"));
-      }
-      if (cfg.biome === 4 && y > TERRA_BEDROCK_Y + 5 && y < surfY - 2
-        && hash(wx, y * 13 + wz, S + 4500) % 150 === 0) {
-        dim.getBlock({ x: wx, y, z: wz })?.setPermutation(liquidP);
       }
     }
     yield;
@@ -1194,7 +1194,7 @@ function terraOreAt(x, y, z, S, biome) {
   }
   if (biome === 4) {
     // Nether: nether quartz e nether gold ovunque, lava pockets
-    if (v < 20) return BlockPermutation.resolve("minecraft:nether_quartz_ore");
+    if (v < 20) return BlockPermutation.resolve("minecraft:quartz_ore");
     if (v < 30) return BlockPermutation.resolve("minecraft:nether_gold_ore");
     if (v < 33) return BlockPermutation.resolve("minecraft:ancient_debris");
     return null;
@@ -1513,7 +1513,7 @@ async function teleportToTerra(player) {
   player.teleport({ x: spawn.x, y: spawnY, z: spawn.z }, { dimension: dim });
   system.runTimeout(() => {
     player.runCommand("fog @s remove custom_fog");
-    player.runCommand("fog @s push minecraft:fog_default @s");
+    player.runCommand("fog @s push minecraft:fog_bamboo_jungle fog_override");
   }, 5);
   dim.runCommand(`time set ${slot.config.timeOfDay}`);
 
@@ -1608,7 +1608,7 @@ function showTravelMenu(player) {
         player.teleport(dest.spawn, { dimension: world.getDimension(dest.id) });
         system.runTimeout(() => {
           player.runCommand("fog @s remove custom_fog");
-          player.runCommand("fog @s push minecraft:fog_default @s");
+          player.runCommand("fog @s push minecraft:fog_bamboo_jungle fog_override");
         }, 5);
         player.sendMessage("\u00A77Teleported to " + dest.name + "\u00A7r.");
       });
