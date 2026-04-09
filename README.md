@@ -54,7 +54,7 @@ Testing custom dimensions, scripted cinematics, procedural generation and world 
 - Umbra Depths is built once on world load and cached — rebuilding requires `/travel:reset_umbra`
 - Aether islands generate live as you explore using deterministic noise, so shape is consistent per-seed
 - Terra worlds persist across sessions via dynamic properties; each occupies its own dimension slot (`terra:world_0` through `terra:world_7`)
-- Red/wrong fog in custom dimensions is a known Bedrock limitation with no full fix available yet
+- Red/wrong fog in custom dimensions can be a issue i have planned to fix.
 
 ---
 
