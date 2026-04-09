@@ -2,7 +2,7 @@
 
 > Made by **FonnyFofo** for **WanMine**
 
-A Bedrock scripting experiment using the new **Custom Dimension API** (available since Preview 1.21.80+).  
+A Bedrock scripting experiment using the new **Custom Dimension API** (available since Preview 26.20.x).  
 Adds three fully scripted custom dimensions accessible from anywhere via a travel UI.
 
 ---
@@ -19,7 +19,7 @@ Adds three fully scripted custom dimensions accessible from anywhere via a trave
 
 ## Requirements
 
-- **Minecraft Preview** — minimum engine version `1.21.80`
+- **Minecraft Preview** — versione **26.x** o superiore (tested on 26.20.x)
 - **Beta APIs** experimental toggle enabled (see below)
 - **Custom Dimensions** experimental toggle enabled (see below)
 
